@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva ❤️ Lulu em JF</title>
+    <!-- Fonte romântica do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #fce4ec 0%, #f8bbd0 100%);
+            font-family: 'Quicksand', sans-serif;
+            padding: 1.5rem;
+        }
+
+        .card {
+            max-width: 750px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 4rem 2rem 4rem 2rem;
+            padding: 2.8rem 2rem;
+            box-shadow: 0 25px 45px rgba(183, 28, 28, 0.25), 
+                        0 0 0 2px rgba(255, 255, 255, 0.6) inset;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .titulo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.8rem;
+            color: #880e4f;
+            text-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
+            margin-bottom: 0.25rem;
+            letter-spacing: 1px;
+            word-break: break-word;
+        }
+
+        .subtitulo {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #ad1457;
+            background: rgba(255, 255, 255, 0.5);
+            display: inline-block;
+            padding: 0.4rem 2rem;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+            margin-bottom: 2rem;
+            border: 1px solid #f48fb1;
+            box-shadow: 0 2px 8px rgba(233, 30, 99, 0.15);
+        }
+
+        .contador {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        .bloco {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 2.2rem 1rem 2.2rem 1rem;
+            padding: 1.2rem 0.9rem;
+            min-width: 90px;
+            flex: 1 0 70px;
+            box-shadow: 0 10px 20px rgba(136, 14, 79, 0.15), 
+                        0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+            transition: 0.2s;
+        }
+
+        .bloco:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 30px rgba(183, 28, 28, 0.2);
+        }
+
+        .numero {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 3.2rem;
+            line-height: 1;
+            color: #4a001f;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(233, 30, 99, 0.2);
+        }
+
+        .legenda {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+            color: #880e4f;
+            background: rgba(248, 187, 208, 0.3);
+            border-radius: 40px;
+            padding: 0.2rem 0.8rem;
+            display: inline-block;
+            margin-top: 6px;
+            backdrop-filter: blur(2px);
+            border: 1px solid #f8bbd0;
+        }
+
+        .mensagem-final {
+            margin-top: 2.5rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: #6a1b3d;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+            border-radius: 60px 20px 60px 20px;
+            padding: 0.8rem 1.8rem;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 4px 15px rgba(183, 28, 28, 0.1);
+            word-break: break-word;
+        }
+
+        .coração {
+            display: inline-block;
+            animation: pulsar 1.6s infinite alternate ease-in-out;
+            color: #d81b60;
+            font-size: 2.6rem;
+            line-height: 1;
+            margin: 0 6px;
+        }
+
+        @keyframes pulsar {
+            0% { transform: scale(0.95); opacity: 0.7; text-shadow: 0 0 8px #f06292; }
+            100% { transform: scale(1.2); opacity: 1; text-shadow: 0 0 20px #e91e63, 0 0 30px #f06292; }
+        }
+
+        .footer-amor {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #7a2e4a;
+            font-weight: 300;
+            letter-spacing: 1px;
+            border-top: 1px dashed #f48fb1;
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .footer-amor span {
+            font-size: 1.2rem;
+        }
+
+        /* responsividade */
+        @media (max-width: 500px) {
+            .card {
+                padding: 2rem 1.2rem;
+                border-radius: 2.5rem 1.2rem 2.5rem 1.2rem;
+            }
+            .titulo {
+                font-size: 2.2rem;
+            }
+            .numero {
+                font-size: 2.4rem;
+            }
+            .bloco {
+                min-width: 60px;
+                padding: 0.9rem 0.3rem;
+            }
+            .contador {
+                gap: 0.6rem;
+            }
+            .mensagem-final {
+                font-size: 1.8rem;
+                padding: 0.6rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .bloco {
+                min-width: 50px;
+                flex: 1 0 55px;
+            }
+            .numero {
+                font-size: 2rem;
+            }
+            .titulo {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <!-- Título com coração -->
+    <div class="titulo">
+        <span class="coração">❤️</span> 
+        tempo até a lulu voltar pra jf 
+        <span class="coração">❤️</span>
+    </div>
+    <div class="subtitulo">
+        ✨ 17 de agosto de 2026 — o coração espera ✨
+    </div>
+
+    <!-- Contador regressivo -->
+    <div class="contador" id="contador">
+        <div class="bloco">
+            <div class="numero" id="dias">00</div>
+            <div class="legenda">dias</div>
+        </div>
+        <div class="bloco">
+            <div class="numero" id="horas">00</div>
+            <div class="legenda">horas</div>
+        </div>
+        <div class="bloco">
+            <div class="numero" id="minutos">00</div>
+            <div class="legenda">min</div>
+        </div>
+        <div class="bloco">
+            <div class="numero" id="segundos">00</div>
+            <div class="legenda">seg</div>
+        </div>
+    </div>
+
+    <!-- Mensagem romântica -->
+    <div class="mensagem-final">
+        <span class="coração" style="font-size:1.8rem;">💕</span> 
+        saudade boa é a que tem data 
+        <span class="coração" style="font-size:1.8rem;">💕</span>
+    </div>
+
+    <div class="footer-amor">
+        <span>🌹</span> cada segundo é um passo mais perto de você <span>🌹</span>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // Data alvo: 17 de agosto de 2026 às 00:00:00 (horário local)
+        const alvo = new Date('2026-08-17T00:00:00').getTime();
+
+        // Elementos do DOM
+        const diasEl = document.getElementById('dias');
+        const horasEl = document.getElementById('horas');
+        const minutosEl = document.getElementById('minutos');
+        const segundosEl = document.getElementById('segundos');
+
+        // Formata número com dois dígitos
+        function formatarNumero(valor) {
+            return String(valor).padStart(2, '0');
+        }
+
+        // Atualiza o contador
+        function atualizarContador() {
+            const agora = Date.now();
+            let diferenca = alvo - agora;
+
+            // Se já passou do alvo, mostrar 00:00:00:00 e parar (opcional: mensagem)
+            if (diferenca <= 0) {
+                diasEl.textContent = '00';
+                horasEl.textContent = '00';
+                minutosEl.textContent = '00';
+                segundosEl.textContent = '00';
+                // (Opcional) mudar texto para algo especial?
+                // Mas mantemos o visual romântico.
+                return;
+            }
+
+            // Cálculos
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            diferenca -= dias * (1000 * 60 * 60 * 24);
+
+            const horas = Math.floor(diferenca / (1000 * 60 * 60));
+            diferenca -= horas * (1000 * 60 * 60);
+
+            const minutos = Math.floor(diferenca / (1000 * 60));
+            diferenca -= minutos * (1000 * 60);
+
+            const segundos = Math.floor(diferenca / 1000);
+
+            // Atualiza DOM
+            diasEl.textContent = formatarNumero(dias);
+            horasEl.textContent = formatarNumero(horas);
+            minutosEl.textContent = formatarNumero(minutos);
+            segundosEl.textContent = formatarNumero(segundos);
+        }
+
+        // Atualiza imediatamente e depois a cada segundo
+        atualizarContador();
+        setInterval(atualizarContador, 1000);
+
+        // Pequeno extra: se a data já passou, podemos exibir uma mensagem sutil
+        // mas mantemos o contador zerado. O tema de amor permanece.
+    })();
+</script>
+
+</body>
+</html>
